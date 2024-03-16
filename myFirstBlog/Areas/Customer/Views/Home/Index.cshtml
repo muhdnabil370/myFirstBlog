@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Product>
+
+<div class="row pb-5">
+    @foreach(var items in Model)
+    {
+        <div class="col-lg-3 col-sm-6">
+            <div class="row pb-2">
+                <div class="col-12 p-1">
+                    <div class="card border-0 p-3 shadow border-top border-5 rounded">
+                        <img src="@items.ImageUrl" class="card-img-top rounded" />
+                        <div class="card-body pb-0">
+                            <div class="p-lg-1">
+                                <p class="card-title h5 text-dark opadcity-75 text-uppercase text-center">@items.Title</p>
+                                <p class="card-title text-warnng text-center">by <b>@items.Author</b> </p>
+                            </div>
+                            <div class="p-lg-1">
+                                <p class="text-dark text-opacity-75 text-center mb-0">
+                                    List Price: 
+                                    <span class="text-decoration-line-through">RM @items.ListPrice</span> 
+                                </p>
+                            </div>
+                            <div class="p-lg-1">
+                                <p class="text-dark text-opacity-75 text-center">
+                                    by As low as: RM<span>@items.Price100</span> 
+                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <a asp-action="Details" asp-route-productId="@items.Id" class="btn btn-primary bg-gradient border-0 form-control"> Details</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+</div>
